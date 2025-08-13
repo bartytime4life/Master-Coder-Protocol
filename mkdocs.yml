@@ -1,0 +1,35 @@
+site_name: Master Coder Protocol
+repo_url: https://example.com/mcp
+theme:
+  name: material
+  features:
+    - navigation.top
+markdown_extensions:
+  - admonition
+  - codehilite
+  - footnotes
+  - tables
+  - toc
+  - pymdownx.superfences
+  - pymdownx.tabbed
+  - pymdownx.highlight
+plugins:
+  - search
+nav:
+  - Home: index.md
+  - Glossary: glossary.md
+  - Changelog: changelog.md
+  - Architecture: architecture.md
+  - Modules:
+      - AI/ML: modules/ai-ml/index.md
+      - Physics: modules/physics/index.md
+      - Biotech: modules/biotech/index.md
+      - Data Science: modules/data-science/index.md
+      - Full-Stack: modules/full-stack/index.md
+  - Templates:
+      - Experiment: templates/experiment.md
+      - SOP: templates/sop.md
+      - Model Card: templates/model_card.md
+      - Commit Guidelines: templates/commit_guidelines.md
+      - Architecture Template: templates/architecture_template.md
+      - README Template: templates/readme_template.md
