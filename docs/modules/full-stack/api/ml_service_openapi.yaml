@@ -1,0 +1,35 @@
+openapi: 3.0.0
+info:
+  title: ML Service API
+  version: 1.0.0
+paths:
+  /api/v1/predict:
+    post:
+      summary: Get prediction
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InputData'
+      responses:
+        '200':
+          description: Prediction result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PredictionResult'
+components:
+  schemas:
+    InputData:
+      type: object
+      properties:
+        feature:
+          type: number
+    PredictionResult:
+      type: object
+      properties:
+        prediction:
+          type: number
+        confidence:
+          type: number
