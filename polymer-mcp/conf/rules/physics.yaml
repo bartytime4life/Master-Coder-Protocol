@@ -1,0 +1,12 @@
+checks:
+  tg_below_tm:
+    when: ["properties.Tm_C != null", "properties.Tg_C != null"]
+    rule: "properties.Tg_C < properties.Tm_C - 5"
+    severity: "error"
+  modulus_bounds_rom:
+    when: []
+    rule: "true"  # placeholder; composite modulus check would require composite fields
+    severity: "warn"
+penalties:
+  tg_below_tm: 1.0
+  modulus_bounds_rom: 0.2

@@ -1,0 +1,30 @@
+# Python
+**pycache**/
+*.pyc
+*.pyo
+*.pyd
+*.pkl
+*.joblib
+
+# Envs
+.venv/
+.env
+
+# Data & runs
+data/interim/*
+data/processed/*
+!data/interim/.gitkeep
+!data/processed/.gitkeep
+runs/*
+
+# Reports
+reports/logs/*
+reports/html/*
+reports/figures/*
+!reports/logs/.gitkeep
+!reports/html/.gitkeep
+!reports/figures/.gitkeep
+
+# IDE
+.vscode/
+.idea/

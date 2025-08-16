@@ -1,0 +1,23 @@
+{
+  "polymer_id": "PP-001",
+  "identity": {
+    "bigsmiles": "{[][$]CH3CH(CH3)[*]}",
+    "class": "thermoplastic",
+    "topology": "homo",
+    "composition": [{"monomer": "propylene", "fraction": 1.0}]
+  },
+  "molecular_weight": {"Mn": 80000, "Mw": 150000, "dispersity": 1.875, "method": "GPC"},
+  "processing": {
+    "route": "melt",
+    "cooling_rate_K_per_min": 10.0,
+    "anneal": {"temperature_C": 80, "time_min": 30}
+  },
+  "specimen": {"geometry": "ASTM D638 Type I", "thickness_mm": 3.2, "crystallinity_pct": 45},
+  "environment": {"test_temperature_C": 23, "humidity_pct": 50},
+  "properties": {
+    "Tg_C": -10,
+    "Tm_C": 160,
+    "tensile": {"yield_MPa": 32, "UTS_MPa": 38, "elongation_pct": 200}
+  },
+  "provenance": {"source": "lab", "license": "CC-BY-4.0", "contributor": "MCP"}
+}

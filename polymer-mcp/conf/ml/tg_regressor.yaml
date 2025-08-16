@@ -1,0 +1,36 @@
+# Hydra-style config for Tg regression
+
+run:
+  name: tg_regressor_default
+  out_dir: runs/${run.name}
+
+data:
+  processed_csv: data/processed/features.csv
+  target: Tg_C
+  features:
+    - Mw
+    - Mn
+    - dispersity
+    - composition_entropy
+    - bigsmiles_len
+    - cooling_rate_K_per_min
+    - anneal_temperature_C
+    - anneal_time_min
+
+model:
+  type: RandomForestRegressor
+  params:
+    n_estimators: 300
+    random_state: 42
+    max_depth: null
+    n_jobs: -1
+
+training:
+  test_size: 0.2
+  random_state: 42
+
+logging:
+  jsonl_path: reports/logs/tg_run.jsonl
+  mlflow:
+    enabled: false
+    tracking_uri: null
