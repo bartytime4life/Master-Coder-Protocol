@@ -1,0 +1,91 @@
+$schema: "https://json-schema.org/draft/2020-12/schema"
+title: MCP Polymer Record
+type: object
+required: [polymer_id, identity, processing, properties, provenance]
+properties:
+  polymer_id: {type: string}
+  identity:
+    type: object
+    required: [bigsmiles]
+    properties:
+      bigsmiles: {type: string}
+      smiles_repeat_unit: {type: [string, "null"]}
+      inchi_key: {type: [string, "null"]}
+      class: {type: string, enum: [thermoplastic, thermoset, elastomer, copolymer, biopolymer, composite]}
+      topology: {type: string, enum: [homo, random_copolymer, block_copolymer, graft, alternating, network]}
+      composition:
+        type: array
+        items: {type: object, properties: {monomer: {type: string}, fraction: {type: number}}}
+  molecular_weight:
+    type: object
+    properties:
+      Mn: {type: [number, "null"]}
+      Mw: {type: [number, "null"]}
+      dispersity: {type: [number, "null"]}
+      method: {type: [string, "null"]}
+  processing:
+    type: object
+    properties:
+      route: {type: string, enum: [melt, solution, emulsion, uv_cure, thermal_cure, 3d_print]}
+      solvent: {type: [string, "null"]}
+      concentration_wt_pct: {type: [number, "null"]}
+      cooling_rate_K_per_min: {type: [number, "null"]}
+      anneal:
+        type: object
+        properties:
+          temperature_C: {type: [number, "null"]}
+          time_min: {type: [number, "null"]}
+      cure:
+        type: object
+        properties:
+          type: {type: [string, "null"]}
+          schedule: {type: [string, "null"]}
+          degree: {type: [number, "null"]}
+  specimen:
+    type: object
+    properties:
+      geometry: {type: [string, "null"]}
+      thickness_mm: {type: [number, "null"]}
+      crystallinity_pct: {type: [number, "null"]}
+      draw_ratio: {type: [number, "null"]}
+  environment:
+    type: object
+    properties:
+      test_temperature_C: {type: [number, "null"]}
+      humidity_pct: {type: [number, "null"]}
+  properties:
+    type: object
+    properties:
+      Tg_C: {type: [number, "null"]}
+      Tm_C: {type: [number, "null"]}
+      tensile:
+        type: object
+        properties:
+          yield_MPa: {type: [number, "null"]}
+          UTS_MPa: {type: [number, "null"]}
+          elongation_pct: {type: [number, "null"]}
+      viscosity_Pa_s:
+        type: array
+        items: {type: object, properties: {T_C: {type: number}, shear_rate_s-1: {type: number}, eta_Pa_s: {type: number}}}
+      dielectric:
+        type: array
+        items: {type: object, properties: {freq_Hz: {type: number}, epsilon_r: {type: number}, loss_tan: {type: number}}}
+      ionic_conductivity_S_m:
+        type: array
+        items: {type: object, properties: {T_C: {type: number}, sigma_S_m: {type: number}}}
+      permeability_Barrer:
+        type: array
+        items: {type: object, properties: {gas: {type: string}, T_C: {type: number}, P_Barrer: {type: number}}}
+      uncertainty:
+        type: object
+        additionalProperties: {type: number}
+  provenance:
+    type: object
+    required: [source, license]
+    properties:
+      source: {type: string}
+      doi: {type: [string, "null"]}
+      license: {type: string}
+      contributor: {type: [string, "null"]}
+      instrument: {type: [string, "null"]}
+      notes: {type: [string, "null"]}

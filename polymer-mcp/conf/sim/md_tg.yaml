@@ -1,0 +1,19 @@
+system:
+  bigsmiles: "{[][$]CC(C)C[*]}"
+  chains: 20
+  target_Mw_g_mol: 80000
+protocol:
+  equilibrate:
+    T_C: 450
+    time_ns: 1.0
+  cool:
+    start_C: 450
+    end_C: 150
+    rate_K_per_ps: 0.02
+analysis:
+  tg_method: "density_intersection"
+  sample_every_ps: 2.0
+output:
+  csv: "reports/figures/md_density_vs_T.csv"
+  plot_png: "reports/figures/md_density_vs_T.png"
+  tg_txt: "reports/figures/md_tg.txt"
